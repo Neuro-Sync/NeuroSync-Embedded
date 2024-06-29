@@ -40,7 +40,6 @@ void loop() {
   
   if (Serial.available() > 0) {
     String command = Serial.readString();
-
     processCommand(command);
   }
   
@@ -106,11 +105,15 @@ void processCommand(const String& command) {
   if (command == "stop") {
     stopMotors();
   } else if (command == "forward") {
-    moveForward(70);
+    moveForward(80);
   } else if (command == "right") {
-    turnRight(120);
+    turnRight(140);
+    delay(1100);
+    stopMotors();
   } else if (command == "left") {
-    turnLeft(120);
+    turnLeft(140);
+    delay(1100);
+    stopMotors();
   } 
 }
 
